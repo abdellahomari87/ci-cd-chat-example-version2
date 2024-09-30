@@ -1,36 +1,30 @@
 name: CI/CD for Chat Service
 
-# Déclenche le workflow lors d'un push ou d'une pull request affectant les fichiers dans le dossier Chat
 on:
   push:
     paths:
-      - 'Chat/**'        # Surveille les changements dans le dossier Chat
+      - 'chat/**'        # Note la minuscule ici pour correspondre au nom de ton dossier
   pull_request:
     paths:
-      - 'Chat/**'
+      - 'chat/**'
 
 jobs:
-  # Job de build et de test
   build:
-    runs-on: ubuntu-latest   # Utilisation d'un environnement Ubuntu pour exécuter le workflow
+    runs-on: ubuntu-latest   # Utilisation d'un runner GitHub-hosted
 
     steps:
-      # Étape 1 : Checkout du code
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Étape 2 : Configurer Python (si ton projet est en Python)
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
 
-      # Étape 3 : Installer les dépendances à partir du fichier requirements.txt
       - name: Install dependencies
         run: |
-          pip install -r Chat/requirements.txt
+          pip install -r requirements.txt
 
-      # Étape 4 : Exécuter les tests (en supposant que tu utilises pytest)
       - name: Run tests
         run: |
-          pytest Chat/tests/
+          pytest chat/tests/
