@@ -16,12 +16,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$(pwd)/chat" >> $GITHUB_ENV  # Assurez-vous que le PYTHONPATH est correctement défini
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-      - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)/chat" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: |
@@ -59,7 +60,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}:latest .
+          docker build -t ghcr.io/${{ github.repository }}:latest -f docker/Dockerfile .
 
       - name: Push Docker image
         run: |
