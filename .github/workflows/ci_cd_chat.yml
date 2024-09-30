@@ -44,7 +44,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=chat --cov-fail-under=80 tests/
+          pytest --cov=chat --cov-fail-under=80 chat/tests/
 
       - name: Generate coverage report
         run: |
