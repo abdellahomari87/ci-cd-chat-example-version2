@@ -38,6 +38,10 @@ jobs:
         run: |
           pip install bandit
           bandit -r chat/
+          
+      - name: Install pytest-cov
+        run: |
+          pip install pytest-cov
 
       - name: Run tests with coverage
         run: |
