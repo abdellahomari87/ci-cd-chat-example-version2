@@ -46,9 +46,9 @@ jobs:
         run: |
           pytest --cov=chat --cov-fail-under=80 chat/tests/
 
-      - name: Generate coverage report
+      - name: Generate HTML coverage report
         run: |
-          pytest --cov=chat --cov-fail-under=80 chat/tests/
+          pytest --cov=chat --cov-report=html chat/tests/
 
       - name: Store coverage report
         uses: actions/upload-artifact@v3  # Version mise à jour
