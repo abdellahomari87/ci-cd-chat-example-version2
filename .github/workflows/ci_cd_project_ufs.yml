@@ -1,12 +1,12 @@
-name: CI/CD for Project_UFS
+name: CI/CD for project_UFS
 
 on:
   push:
     paths:
-      - 'Project_UFS/**'
+      - 'project_UFS/**'
   pull_request:
     paths:
-      - 'Project_UFS/**'
+      - 'project_UFS/**'
 
 jobs:
   build:
@@ -23,8 +23,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r Project_UFS/requirements.txt
+          pip install -r project_UFS/requirements.txt
 
       - name: Run tests
         run: |
-          pytest Project_UFS/tests/
+          pytest project_UFS/tests/
