@@ -1,2 +1,2 @@
 def get_message():
-    return "Hello from the Chat service! oui oui"
+    return "Hello to you from the Chat service! oui oui"
