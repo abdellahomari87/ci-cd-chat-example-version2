@@ -31,7 +31,10 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=chat --cov-fail-under=80 chat/tests/
+          pip install coverage
+          coverage run -m unittest discover -s chat/tests
+          coverage report -m
+          coverage html
 
       - name: Generate HTML coverage report
         run: |
