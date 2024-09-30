@@ -51,7 +51,7 @@ jobs:
           pytest --cov=chat --cov-report=html tests/
 
       - name: Store coverage report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Version mise à jour
         with:
           name: coverage-report
           path: htmlcov/
