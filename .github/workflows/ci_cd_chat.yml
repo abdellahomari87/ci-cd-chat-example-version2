@@ -28,6 +28,16 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install pytest-cov
+          
+      - name: Lint with flake8
+        run: |
+          pip install flake8
+          flake8 --max-line-length=88 --ignore=W391 chat/
+
+      - name: Run security tests with bandit
+        run: |
+          pip install bandit
+          bandit -r chat/
 
       - name: Run tests with coverage
         run: |
